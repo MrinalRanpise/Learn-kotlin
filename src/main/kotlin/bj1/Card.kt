@@ -4,9 +4,15 @@ import java.lang.IllegalArgumentException
 
 class Card(val value:Int , val suit:Int){
 
-    init {          //kind of like constructor
+    val msg = fun():String{   //anonymous fun
+        return "Bad Suit"
+    }
+
+    val msg1 = { "Bad Suit"}   //lambda function
+
+    init{          //kind of like constructor
         require(value in 1..13)  //Used to check illegal argument exception,this returns true or false , If this return false then it throws illegalArgumentException
-        require(suit in 1..4)
+        require(suit in 1..4,msg1)  // we can pass fun i.e msg1 to specify error msg for IllegalArgumentException
     }
 
 //    val suitName:String get() {
